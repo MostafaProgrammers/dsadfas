@@ -601,7 +601,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-            if (message.content === prefix + 'colors' || 'الوان') {
+            if (message.content === prefix + 'colors') {
               message.channel.send('https://images-ext-2.discordapp.net/external/co-Y4SjdBEOFlzn6LWfeen9ZBM9eqB0aTgDPJ6VkX9s/%3Fwidth%3D318%26height%3D300/https/media.discordapp.net/attachments/593216139287461888/593390824365228033/colors.png');
                
             }
