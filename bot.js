@@ -548,17 +548,11 @@ client.on('message', message => {
 
 client.on('message', message => {
             if (message.content === '!') {
-              message.channel.send('**__W__**el**__c__** **ome** **__to__** **__Knights Of Darkness__**');
+              message.channel.send('**__W__**el**__c__** **ome** **__to__** **__Tina Shop__**');
                
             }
 }); 
 
-client.on('message', message => {
-            if (message.content === prefix + 'joinclan') {
-              message.channel.send('**للانضمام ضع الشعار و تكلم مع رتبة مختبر**');
-               
-            }
-}); 
 
 client.on('message', message => {
             if (message.content === 'باك') {
@@ -574,19 +568,6 @@ client.on('message', message => {
             }
 }); 
 
-client.on('message', message => {
-            if (message.content === 'الشعار') {
-              message.channel.send('**!KD,Name  شعارك بالديسكورد**');
-               
-            }
-}); 
-
-client.on('message', message => {
-            if (message.content === 'الشعار') {
-              message.channel.send('**を Name  شعارك باللعبة**');
-               
-            }
-}); 
 
 client.on('message', message => {
             if (message.content === 'السلام عليكم') {
@@ -620,19 +601,74 @@ client.on('message', message => {
 }); 
 
 
-   client.on('message', message => {
-	    if (message.content === prefix + 'safdfsd') {
-              message.channel.send('**تم الارسال في الخاص** :white_check_mark: ');
-               
-            }
-}); 
+client.on('message', omar => {
+if(omar.content.split(' ')[0] == prefix + 'dcddd') {  // delete all channels
+if (!omar.channel.guild) return;
+if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return omar.reply("**You Don't Have ` MANAGE_CHANNELS ` Permission**");
+if(!omar.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return omar.reply("**I Don't Have ` MANAGE_CHANNELS ` Permission**");
+omar.guild.channels.forEach(m => {
+m.delete();
+});// omar jedol / Codes
+}// omar jedol / Codes
+if(omar.content.split(' ')[0] == prefix + 'dr') { // delete all roles
+if (!omar.channel.guild) return;
+if(!omar.guild.member(omar.author).hasPermission("MANAGE_ROLES")) return omar.reply("**You Don't Have ` MANAGE_ROLES_PERMISSIONS ` Permission**");
+if(!omar.guild.member(client.user).hasPermission("MANAGE_ROLES")) return omar.reply("**I Don't Have ` MANAGE_ROLES_PERMISSIONS ` Permission**");
+omar.guild.roles.forEach(m => {
+m.delete();
+});// omar jedol / Codes
+omar.reply("`تم حذف جميع الرتب بنجاح`")
+}// omar jedol / Codes
+});
 
+
+const devs = ["567694723679125514","ايدي صاحب الب"]
+ 
+const adminprefix = "M";
 client.on('message', message => {
-            if (message.content === prefix + 'iaSffd') {
-              message.channel.send('**تم الارسال في الخاص** :white_check_mark: ');
-               
-            }
-}); 
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
+     
+  if (message.content.startsWith(adminprefix + 'setpl')) {
+    client.user.setGame(argresult);
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  } else
+    if (message.content === (adminprefix + "leave")) {
+    message.guild.leave();        
+  } else  
+  if (message.content.startsWith(adminprefix + 'setwat')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  } else
+  if (message.content.startsWith(adminprefix + 'setlis')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  } else    
+    if (message.content.startsWith(adminprefix + 'setna')) {
+  client.user.setUsername(argresult).then
+      message.channel.sendMessage(`**${argresult}** : Done :>`)
+  return message.reply("**You Can't Change Your Name ,Only After Two Hours :>**");
+  } else
+    if (message.content.startsWith(adminprefix + 'setava')) {
+  client.user.setAvatar(argresult);
+    message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
+        } else    
+  if (message.content.startsWith(adminprefix + 'settw')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/mohamedgamal");
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  }
+    if(message.content === adminprefix + "restart") {
+      if (!devs.includes(message.author.id)) return;
+          message.channel.send(`:warning:️ **Bot restarting by ${message.author.username}**`);
+        console.log("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        console.log(`⚠️ Bot restarting... ⚠️`);
+        console.log("===============================================\n\n");
+        client.destroy();
+        child_process.fork(__dirname + "/bot.js");
+        console.log(`Bot Successfully Restarted`);
+    }
+ 
+  }); //Toxic Codes
 
 
 const developers = ["567694723679125514","id"]
@@ -2562,7 +2598,7 @@ member.guild.fetchInvites().then(guildInvites => {
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
     const yumz = member.guild.channels.find("name", `${sChannel}`);
-     yumz.send(` **Welcome To** **__Knights Of Darkness__** :revolving_hearts: :** <@${member.user.id}>  |  **joined by :** <@${inviter.id}>`);
+     yumz.send(` **__W__**el**__c__** **ome** **__to__** **__Tina Shop__** :revolving_hearts: : <@${member.user.id}>    |    **joined by :** <@${inviter.id}>`);
    //  yumz.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
   }); 
       var Canvas = require('canvas')
@@ -2625,8 +2661,8 @@ member.guild.fetchInvites().then(guildInvites => {
   if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply(':x: **ليس لديك الصلاحيات الكافية**');
   if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply(':x: **ليس معي الصلاحيات الكافية**');
   message.channel.send(':white_check_mark:| **تم عمل الروم بنجاح**');
-  message.guild.createChannel(`Knights Online : [ ${message.guild.members.filter(m => m.voiceChannel).size} ]` , 'voice').then(c => {
-    console.log(`Knightda online channel setup for guild: \n ${message.guild.name}`);
+  message.guild.createChannel(`Tina Online : [ ${message.guild.members.filter(m => m.voiceChannel).size} ]` , 'voice').then(c => {
+    console.log(`Tina online channel setup for guild: \n ${message.guild.name}`);
     c.overwritePermissions(message.guild.id, {
       CONNECT: false,
       SPEAK: false
