@@ -598,28 +598,14 @@ client.on('message', message => {
               message.channel.send('**To see the orders of the English bot    -help-en**');
                
             }
-}); 
-
-
-client.on('message', omar => {
-if(omar.content.split(' ')[0] == prefix + 'dcddd') {  // delete all channels
-if (!omar.channel.guild) return;
-if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return omar.reply("**You Don't Have ` MANAGE_CHANNELS ` Permission**");
-if(!omar.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return omar.reply("**I Don't Have ` MANAGE_CHANNELS ` Permission**");
-omar.guild.channels.forEach(m => {
-m.delete();
-});// omar jedol / Codes
-}// omar jedol / Codes
-if(omar.content.split(' ')[0] == prefix + 'dr') { // delete all roles
-if (!omar.channel.guild) return;
-if(!omar.guild.member(omar.author).hasPermission("MANAGE_ROLES")) return omar.reply("**You Don't Have ` MANAGE_ROLES_PERMISSIONS ` Permission**");
-if(!omar.guild.member(client.user).hasPermission("MANAGE_ROLES")) return omar.reply("**I Don't Have ` MANAGE_ROLES_PERMISSIONS ` Permission**");
-omar.guild.roles.forEach(m => {
-m.delete();
-});// omar jedol / Codes
-omar.reply("`تم حذف جميع الرتب بنجاح`")
-}// omar jedol / Codes
 });
+
+client.on('message', message => {
+            if (message.content === prefix + 'colors' || 'الوان') {
+              message.channel.send('https://images-ext-2.discordapp.net/external/co-Y4SjdBEOFlzn6LWfeen9ZBM9eqB0aTgDPJ6VkX9s/%3Fwidth%3D318%26height%3D300/https/media.discordapp.net/attachments/593216139287461888/593390824365228033/colors.png');
+               
+            }
+}); 
 
 
 const developers = ["567694723679125514","id"]
