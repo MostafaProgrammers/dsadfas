@@ -2605,7 +2605,7 @@ member.guild.fetchInvites().then(guildInvites => {
       SPEAK: false
     });
     setInterval(() => {
-      c.setName(`Knights Online : [ ${message.guild.members.filter(m => m.voiceChannel).size} ]`)
+      c.setName(`Tina Online : [ ${message.guild.members.filter(m => m.voiceChannel).size} ]`)
     },1000);
   });
   }
