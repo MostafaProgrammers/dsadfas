@@ -93,7 +93,7 @@ if (message.content.startsWith('lollsasdfawed')) { /// This is The DMS Code Send
 client.on('message', message => {
 if(message.author.bot) return;
 if(message.channel.type === 'dm') return;
-    if(message.content.startsWith(prefix + 'bc')) {
+    if(message.content.startsWith(prefix + 'bcc')) {
      let filter = m => m.author.id === message.author.id;
  
  let recembed = new Discord.RichEmbed()
