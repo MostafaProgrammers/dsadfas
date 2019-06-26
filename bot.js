@@ -2506,7 +2506,7 @@ client.on('message', message => {
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
   if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
-    channel: "chat"
+    channel: "الـــشـات-الــعـام"
 }
 const channel = sWlc[message.guild.id].channel
   if (message.content.startsWith(prefix + "setwelcome")) {
@@ -2522,7 +2522,7 @@ if (err) console.error(err);
 });
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
-    channel: "chat"
+    channel: "الـــشـات-الــعـام"
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
@@ -2569,7 +2569,7 @@ member.guild.fetchInvites().then(guildInvites => {
                               
                               //NAMEً
                               ctx.font = "bold 12px Arial";
-                              ctx.fontSize = '20px';
+                              ctx.fontSize = '23px';
                               ctx.fillStyle = "#000000";
       ctx.fillText(``, 280, 145);
       
