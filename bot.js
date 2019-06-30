@@ -548,7 +548,7 @@ client.on('message', message => {
 
 client.on('message', message => {
             if (message.content === '!') {
-              message.channel.send('**__W__**el**__c__** **ome** **__to__** **__Tina Shop__**');
+              message.channel.send('**__W__**el**__c__** **ome** **__to__** **__Master__**');
                
             }
 }); 
@@ -601,7 +601,21 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-            if (message.content === prefix + 'colors') {
+            if (message.content === 'الشعار') {
+              message.channel.send('**!Mr | Name شعارك في الديسكورد**');
+               
+            }
+});
+
+client.on('message', message => {
+            if (message.content === 'الشعار') {
+              message.channel.send('**[ ✾ ] : شعارك في اللعبة **');
+               
+            }
+});
+
+client.on('message', message => {
+            if (message.content === 'الوان') {
               message.channel.send('https://images-ext-2.discordapp.net/external/co-Y4SjdBEOFlzn6LWfeen9ZBM9eqB0aTgDPJ6VkX9s/%3Fwidth%3D318%26height%3D300/https/media.discordapp.net/attachments/593216139287461888/593390824365228033/colors.png');
                
             }
@@ -1347,7 +1361,7 @@ if(bz.content.startsWith(prefix + 'ccolors')) {
        });
 client.on('message', message => {
           let args = message.content.split(' ').slice(1);
-   if(message.content.split(' ')[0] == prefix + 'color'){
+   if(message.content.split(' ')[0] == 'لون'){
            const embedd = new Discord.RichEmbed()
      .setFooter('Requested by '+message.author.username, message.author.avatarURL)
    .setDescription(`**There's No Color With This Number ** :x: `)
@@ -2475,7 +2489,7 @@ if(!message.channel.guild) return
 if (message.author.bot) return;
         if (!message.member.hasPermissions(['ADMINISTRATOR'])){
         message.delete()
-    return message.reply(`** Not allowed to advertising Here :angry: ! **`)
+    return message.reply(`** ممنوع النشر يا بيبي **`)
     }
 }
 });
@@ -2597,14 +2611,14 @@ member.guild.fetchInvites().then(guildInvites => {
   if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply(':x: **ليس لديك الصلاحيات الكافية**');
   if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply(':x: **ليس معي الصلاحيات الكافية**');
   message.channel.send(':white_check_mark:| **تم عمل الروم بنجاح**');
-  message.guild.createChannel(`Tina Online : [ ${message.guild.members.filter(m => m.voiceChannel).size} ]` , 'voice').then(c => {
-    console.log(`Tina online channel setup for guild: \n ${message.guild.name}`);
+  message.guild.createChannel(`Master Online : [ ${message.guild.members.filter(m => m.voiceChannel).size} ]` , 'voice').then(c => {
+    console.log(`Master online channel setup for guild: \n ${message.guild.name}`);
     c.overwritePermissions(message.guild.id, {
       CONNECT: false,
       SPEAK: false
     });
     setInterval(() => {
-      c.setName(`Tina Online : [ ${message.guild.members.filter(m => m.voiceChannel).size} ]`)
+      c.setName(`Master Online : [ ${message.guild.members.filter(m => m.voiceChannel).size} ]`)
     },1000);
   });
   }
