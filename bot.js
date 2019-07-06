@@ -869,7 +869,7 @@ client.on("message", (message) => {
             message.channel.send(` :white_check_mark:   **تم فتح التذكرة بنجاح** `);
             const embed = new Discord.RichEmbed()
                 .setColor(0xCF40FA)
-                .addField(`**تم فتح تذكرتك**`, `Please Wait`)
+	        .addField(`**الرجاء عدم السبام داخل التكت**`, `**ممنوع المنشن منشن،مرتين = تصفير`)
                 .setTimestamp();
             c.send({
                 embed: embed
