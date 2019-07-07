@@ -34,62 +34,14 @@ var ti={}
 ,attentions={};
 
 client.on('message', message => {
-if (message.content.startsWith('lollsasdfawed')) { /// This is The DMS Code Send The Help In DMS // Code By NotGucci
-    let pages = [`**
-
-**> |$لعبة كت تويت / كت تويت**
-**> |$roll <number> / قرعة**
-**> |$لو خيروك بطريقة حلوة / لو خيروك**
-**> |$لعبة مريم / مريم**
-**> |$فوائد ونصائح  / هل تعلم**
-**> |$يعطيك عقابات قاسية / عقاب **
-
-**اضافة :welcome يتم الترحيب فى روم باسم**
-**
-   
-`]
-    let page = 1;
-
-    let embed = new Discord.RichEmbed()
-    .setColor('RANDOM')
-    .setFooter(`Page ${page} of ${pages.length}`)
-    .setDescription(pages[page-1])
-
-    message.author.sendEmbed(embed).then(msg => {
-
-        msg.react('⏮').then( r => {
-            msg.react('⏭')
-
-
-        const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏮' && user.id === message.author.id;
-        const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏭' && user.id === message.author.id;
-
-
-        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
-        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
-
-
-
-        backwards.on('collect', r => {
-            if (page === 1) return;
-            page--;
-            embed.setDescription(pages[page-1]);
-            embed.setFooter(`Page ${page} of ${pages.length}`);
-            msg.edit(embed)
-        })
-        forwards.on('collect', r => {
-            if (page === pages.length) return;
-      
-      page++;
-            embed.setDescription(pages[page-1]);
-            embed.setFooter(`Page ${page} of ${pages.length}`);
-            msg.edit(embed)
-        })
-        })
-    })
-    }
-}); 
-
+  if(message.content.startsWith(`<@${client.user.id}>`)) {
+    if(message.author.bot || message.channel.type == "dm") return
+    let mention = new Discord.RichEmbed()
+    .setColor('BLUE')
+    .setDescription(`**Hey There,\nSee my all commands by \`${prefix}help\`**`)
+    message.channel.send(mention)
+  }
+});
 
 
 client.on('message', message => {
