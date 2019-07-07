@@ -40,7 +40,7 @@ client.on('message', message => {
   if(!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return message.channel.send(`**Error** :octagonal_sign:\nI Don\'t have MANAGE_CHANNELS Permission`)
  let log = message.guild.channels.find("name", "log");
  let args = message.content.split(' ').slice(1).join(' ');
- let support = message.guild.roles.find("name","Support Team");
+ let support = message.guild.roles.find("name","@everyone");
  let ticketsStation = message.guild.channels.find("name", "TICKETS");
  let reason = message.content.split(" ").slice(1).join(" ");
  if(!reason) reason = 'NONE';
@@ -48,7 +48,7 @@ client.on('message', message => {
  .setColor("#36393e")
  .addField(`**Error :interrobang:**`, `This server doesn't have a \`Support Team\` role made so the ticket won't be opened.`)
  .setTimestamp();
- if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send({ embed: embed });
+ if (!message.guild.roles.exists("name", "@everyone")) return message.channel.send({ embed: embed });
  if(message.guild.channels.exists("name", `ticket-${message.author.username}`)) return message.channel.send(`You already have a ticket open :no_entry:`);
  if(!ticketsStation) return message.channel.send(`**Error! **:interrobang:\n please create \`category\` Called \`TICKETS\``)
  message.guild.createChannel(`ticket-` + message.author.username, "text").then(c => {
@@ -63,7 +63,7 @@ client.on('message', message => {
  .setThumbnail(`https://cdn.discordapp.com/attachments/584630360017469461/588033107635208193/563111847692337174.png`)
  .setFooter(message.author.tag)
  if(log) log.send(done)
- let role = message.guild.roles.find("name", "Support Team");
+ let role = message.guild.roles.find("name", "@everyone		");
  let role2 = message.guild.roles.find("name", "@everyone");
  c.overwritePermissions(role, {
  SEND_MESSAGES: true,
@@ -962,61 +962,7 @@ msg.guild.setIcon(args)
 
 
 
-client.on("message", (message) => {
- 
-   if (message.content.startsWith(prefix + "new")) {  
-        const reason = message.content.split(" ").slice(1).join(" ");  
-        if (!message.guild.roles.exists("name", "@everyone")) return message.channel.send(`لازم تسوي رتبة اسمها \`Helpers Team\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
-        if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
-        message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
-            let role = message.guild.roles.find("name", "@everyone");
-            let role2 = message.guild.roles.find("name", "@everyone");
-            c.overwritePermissions(role, {
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });  
-            c.overwritePermissions(role2, {
-                SEND_MESSAGES: false,
-                READ_MESSAGES: false
-            });
-            c.overwritePermissions(message.author, {
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });
-            message.channel.send(` :white_check_mark:   **تم فتح التذكرة بنجاح** `);
-            const embed = new Discord.RichEmbed()
-                .setColor(0xCF40FA)
-	        .addField(`**الرجاء عدم السبام داخل التكت**`, `**ممنوع المنشن منشن،مرتين = تصفير`)
-                .setTimestamp();
-            c.send({
-                embed: embed
-            });
-        }).catch(console.error);
-    }
- 
- 
-  if (message.content.startsWith(prefix + "close")) {
-        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
- 
-       message.channel.send(`**للتأكيد اعد كتابه** -close`)
-           .then((m) => {
-               message.channel.awaitMessages(response => response.content === '-close', {
-                       max: 1,
-                       time: 10000,
-                       errors: ['time'],
-                   })  
-                   .then((collected) => {
-                       message.channel.delete();
-                   })  
-                   .catch(() => {
-                       m.edit('للاسف لم يتم اغلاق الروم لعدم التأكيد').then(m2 => {
-                           m2.delete();
-                       }, 3000);
-                   });
-           });
-   }
- 
-});
+
 
 
 
